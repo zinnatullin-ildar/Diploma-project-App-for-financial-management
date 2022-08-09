@@ -145,11 +145,12 @@ class TransactionsPage {
    * item-объект с информацией о транзакции.
    * */
   getTransactionHTML(item) {
-    const id = item.id;
+
     const type = item.type;
     const name = item.name;
-    const sum = item.sum;
     const date = this.formatDate(item.created_at);
+    const sum = item.sum;
+    const id = item.id;
 
     return `<div class="transaction transaction_${type} row">
     <div class="col-md-7 transaction__details">
