@@ -11,12 +11,6 @@
       "email": "ildar@ya.ru",
       "password": "123",
       "id": "2n9mmah0l6cdzpd4"
-    },
-    {
-      "name": "Ильдар",
-      "email": "iqz@izh.com",
-      "password": "321",
-      "id": "2n9mm38ol6l0iu4u"
     }
   ],
   "accounts": [
@@ -44,6 +38,11 @@
       "name": "Карта",
       "user_id": "2n9mmah0l6cdzpd4",
       "id": "2n9mm38ol6l17hbf"
+    },
+    {
+      "name": "Приход",
+      "user_id": "2n9mm70wl6np358s",
+      "id": "2n9mm70wl6np3pxg"
     }
   ],
   "transactions": [
@@ -235,6 +234,24 @@
       "account_id": "2n9mm38ol6l17hbf",
       "user_id": "2n9mmah0l6cdzpd4",
       "created_at": "2022-08-08T17:34:08.841Z"
+    },
+    {
+      "id": "2n9mm6d0l6nsi63s",
+      "type": "expense",
+      "name": "Страховка",
+      "sum": 30000,
+      "account_id": "2n9mm38ol6l17hbf",
+      "user_id": "2n9mmah0l6cdzpd4",
+      "created_at": "2022-08-10T15:52:19.048Z"
+    },
+    {
+      "id": "2n9mm6d0l6nsinnx",
+      "type": "expense",
+      "name": "Кафе",
+      "sum": 5000,
+      "account_id": "2n9mm38ol6l14ekn",
+      "user_id": "2n9mmah0l6cdzpd4",
+      "created_at": "2022-08-10T15:52:41.805Z"
     }
   ]
 }

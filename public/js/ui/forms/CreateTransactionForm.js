@@ -16,24 +16,22 @@ class CreateTransactionForm extends AsyncForm {
    * Получает список счетов с помощью Account.list.
    * Обновляет в форме всплывающего окна выпадающий список.
    * */
+
   renderAccountsList() {
-    Account.list(null, (err, response) => {
-      if (response) {
-        const select = this.element.querySelector('select');//
+    const currentUser = User.current();
+    const accountSelect = this.element.querySelector('.accounts-select');
+    let selectAccounts = '';
 
-        select.querySelectorAll('option').forEach((option) => {
-          option.remove();
-        });
-
-        response.data.forEach((data) => {
-          const option = document.createElement('option');
-
-          option.value = `${data.id}`;
-          option.textContent = `${data.name}`;
-          select.append(option);
-        });
-      }
-    });
+    if (currentUser) {
+      Account.list(currentUser, (err, response) => {
+        if (response && response.success) {
+          response.data.forEach(item => {
+            selectAccounts += `<option value="${item.id}">${item.name}</option>`
+          });
+          accountSelect.innerHTML = selectAccounts;
+        };
+      });
+    }
   }
 
   /**
@@ -44,10 +42,10 @@ class CreateTransactionForm extends AsyncForm {
   onSubmit(data) {
     Transaction.create(data, (err, response) => {
       if (response && response.success) {
+        App.update();
         this.element.reset();
         App.getModal('newIncome').close();
         App.getModal('newExpense').close();
-        App.update();
       }
     });
   }
